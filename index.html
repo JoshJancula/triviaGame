@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>South Park Trivia</title>
+	<!-- Added link to the jQuery Library -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Added a link to Bootstrap-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	
+	<div class="container">
+
+		<div class="panel">
+
+			<div class="row">
+			</div>
+
+			<div class="row">
+
+				<h2  id="currentQuestion">Question goes here?</h2>
+				
+				<form>
+					<label class="radio-inline">
+						<input type="radio" name="button0" class="guess subAnswer">
+						<p id="choiceP0" class="guess">choice A</p>
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="button1" class="guess subAnswer">
+						<p id="choiceP1" class="guess">choice B</p>
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="button2" class="guess subAnswer">
+						<p id="choiceP2" class="guess">choice C</p>
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="button3" class="guess subAnswer">
+						<p id="choiceP3" class="guess">choice D</p>
+					</label>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<script>
+
+		// wait for document to load
+		$(document).ready(function() {
+
+			var correct = 0;
+			var wrong = 0;
+
+			function askQuestion(question, choices, correctNum) {
+	$(".guess").hide(); // Hide all guess class items
+	$("#currentQuestion").text(question);
+	for(var i = 0; i < choices.length; i++) {
+			//Go thru and show the buttons that we need for this question
+			var buttonID = "#button" + i;
+			$(buttonID).show();
+			// tag the radio buttons 1 for true, 0 for false;
+			if (i == correctNum) {
+				$(buttonID).value("1");
+			}
+			else {
+				$(buttonID).value("0");
+			}
+		// this shows the text that goes with the radio buttons
+		var itemID = "#choiceP" + i;
+		$(itemID).text(choices[i]);
+		$(itemID).show();
+
+	}
+}
+
+
+
+
+$(".subAnswer").on("click", function() {
+			// value of the answer you pick
+			var pick = this.value;
+			// 1 means its the correct answer change correct++
+			if (pick == 1) {
+				correct++;
+				alert("submit you got it right");
+			} // change wrong++
+			else {
+				wrong++;
+				alert("you got it wrong");
+			}
+		});
+
+
+// call questions using this
+askQuestion("Who is oldest?", ["Jeff","Josh","Debbie"], 0);
+askQuestion("Who is smartest?", ["Debbie","Tiffy"], 1);
+
+});
+
+
+</script>
+</body>
+</html>
