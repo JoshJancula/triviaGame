@@ -1,0 +1,12 @@
+.panel {
+	margin: 30%;
+	background: blue;
+}
+
+body {
+	background: url("images/southpark2.jpeg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100%;
+}
