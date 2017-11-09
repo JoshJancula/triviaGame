@@ -2,31 +2,94 @@
 	$(document).ready(function() {
 
 
-// start game function
+// contains the questions of the game
+var questions = {
+
+	question0: {
+ 		question:"In season 5 who did the Armed Forces in Afganistan mistake a goat for?",
+ 		choices: ["Stevie Nicks", "Sara Jessica Parker", "Madonna", "Mike krzyzewski"],
+ 		correctNum: 1
+	},
+
+	question1: {
+		question: "What is Stans dads name?",
+		choices: ["Gerald","Randy","Jimbo", "Philip"],
+		correctNum: 1
+	},
+
+	question2: {
+		question: "In which season did Jennifer Anniston make a guest appearance?",
+		choices: ["Season 8","-Season 4", "Season 12", "Season 3"],
+		correctNum: 3
+	},
+
+	question3: {
+		question: "In season 12 what were the Peruvian flute bands protecting the world ",
+		choices: ["Satan", "Giant Guinea Pigs", "ISIS", "The Gulgamacks"],
+		correctNum: 1
+	},
+
+	question4: {
+		question: "Who is Mysterion?",
+		choices: ["Kyle", "Jimmy", "Kenny", "Butters"],
+		correctNum: 2
+	},
+
+	question5: {
+		question: "Who was \"Super Cereal\" about Man-Bear-Pig?",
+		choices: ["Al Gore", "Ted Nugent", "Michael Jackson", "Officer Barbrady"],
+		correctNum: 0
+	},
+
+
+	question6: {
+		question:"In season 8 which celebrity tried to buy Butters?",
+		choices: ["Lindsey Lohan", "Brittany Spears", "Paris Hilton", "Angelina Jolie"],
+		correctNum: 2
+	},
+
+	question7: {
+		question: "What was the name of the organization Chef left South Park to join?",
+		choices: ["Antifa", "The Super Adventure Club", "The Marines", "The Peace Corp"],
+		correctNum: 1
+	},
+
+	question8: {
+		question:"Who Replaced Principal Victoria?",
+		choices: ["Principal Belding", "Principal Gambi", "PC Principal", "Principal Russel"],
+		correctNum: 2
+	},
+
+	question9: {
+		question: "In season 3 which band guest starred for the Halloween special?",
+		choices: ["Primus", "Korn", "Limp Bizkit", "Nickelback"],
+		correctNum: 1
+	},
+
+
+};
 
 
 
+
+// variables
 var intervalId;
 var correct = 0;
 var wrong = 0;
 var clockRunning = false;
 // timer
+
 var timer = {
 
   time: 10,
-  
   reset: function() {
-
-    timer.time = 0;
+    timer.time = 10;
     
-
     // DONE: Change the "display" div to "00:00."
     $("#clock").text("10");
-
   },
 
   start: function() {
-
     // DONE: Use setInterval to start the count here and set the clock to running.
     if (!clockRunning) {
         intervalId = setInterval(timer.count, 1000);
@@ -73,19 +136,16 @@ var timer = {
   }
 };
 
+
+
 $("#start").show();
-$("#currentQuestion").hide();
-$(".buttonAnswers").hide();
+// $("#currentQuestion").hide();
+// $(".buttonAnswers").hide();
 
 
 //start the game
-$(".buttonAnswers").on("click", function(event){
-	timer.start();
-	askQuestion() 
-	if (time < 1) {
-		timer.stop();
-		askQuestion();
-	} 
+$("#start").on("click", function(event){
+	askQuestion(); 
 });
 
 
@@ -95,13 +155,16 @@ $(".buttonAnswers").on("click", function(event){
 console.log(event.currentTarget.id);
 });
 
-for(var i = 0; i < questions.length+1; i++) {
-			askQuestion();
-
+// loop over the array of questons and give me a queston
+for(var key in questions) {
+			askQuestion(questions[key].question, questions[key].choices, questions[key].correctNum);
 			}
 
 
-		function askQuestion(questions.question, questions.choices, questions.correctNum) {
+		function askQuestion(question, choices, correctNum) {
+			// show me the question
+			$("#currentQuestion").show();
+			$(".buttonAnswers").show();
 			// start the timer for this question
 			timer.start();
 			// set buttons to the answer choices
@@ -112,7 +175,7 @@ for(var i = 0; i < questions.length+1; i++) {
 
 			
 				// Hide all guess class items
-				$(".guess").hide(); 
+				// $(".guess").hide(); 
 				//this gets you one of the questions
 				$("#currentQuestion").text(question);
 				for(var i = 0; i < choices.length+1; i++) {
@@ -121,7 +184,7 @@ for(var i = 0; i < questions.length+1; i++) {
 			$(buttonID).show();
 			// tag the radio buttons 1 for true, 0 for false;
 			// if you click on the correct number assign that answer a value of 1
-			console.log(i, correctNum);
+			// console.log(i, correctNum);
 			if (i == correctNum) {
 				$("#buttonID").text("1");
 			}
@@ -133,10 +196,15 @@ for(var i = 0; i < questions.length+1; i++) {
 		var itemID = "#choiceP" + i;
 		$(itemID).text(choices[i]);
 		$(itemID).show();
-
 	}
+	// if you run out of time
+		if (timer === 0) {
+			alert("inside timer");
+		timer.stop();
+	} 
+	
 }
-});
+
 
 
 // if you picked the correct answer or not
@@ -146,14 +214,17 @@ $(".subAnswer").on("click", function() {
 			// 1 means its the correct answer change correct++
 			if (pick == 1) {
 				correct++;
-				alert("submit you got it right");
+				alert("you got it right");
 			}
 			 // change wrong++
 			 else {
 			 	wrong++;
 			 	alert("you got it wrong");
 			 }
+
 			});
+
+
 
 
 // call questions using the function we created
@@ -168,73 +239,7 @@ $(".subAnswer").on("click", function() {
 // askQuestion("In season 3 which band guest starred for the Halloween special?", ["Primus", "Korn", "Limp Bizkit", "Nickelback"], 1);
 // askQuestion("In season 5 who did the Armed Forces in Afganistan mistake a goat for?", ["Stevie Nicks", "Sara Jessica Parker", "Madonna", "Mike krzyzewski"], 1);
 
-var questions = [
 
-
-
- var question0 = {
- 	question:"In season 5 who did the Armed Forces in Afganistan mistake a goat for?",
- 	choices: ["Stevie Nicks", "Sara Jessica Parker", "Madonna", "Mike krzyzewski"], 
- 	correctNum: 1
-};
-
-var question1 = {
-	question: "What is Stans dads name?", 
-	choices: ["Gerald","Randy","Jimbo", "Philip"],
-	correctNum: 1
-};
-
-var question2 = {
-	question: "In which season did Jennifer Anniston make a guest appearance?",
-	choices: ["Season 8","-Season 4", "Season 12", "Season 3"], 
-	correctNum: 3
-};
-
-var question3 = {
-	question: "In season 12 what were the Peruvian flute bands protecting the world ",
-	choices: ["Satan", "Giant Guinea Pigs", "ISIS", "The Gulgamacks"], 
-	correctNum: 1
-};
-
-var question4 = {
-	question: "Who is Mysterion?",
-	choices: ["Kyle", "Jimmy", "Kenny", "Butters"], 
-	correctNum: 2
-};
-
-var question5 = {
-	question: "Who was \"Super Cereal\" about Man-Bear-Pig?",
-	choices: ["Al Gore", "Ted Nugent", "Michael Jackson", "Officer Barbrady"],
-	correctNum: 0
-};
-
-
-var question6 {
-	question:"In season 8 which celebrity tried to buy Butters?", 
-	choices: ["Lindsey Lohan", "Brittany Spears", "Paris Hilton", "Angelina Jolie"],
-	correctNum 2
-};
-
-var question7 = {
-	question: "What was the name of the organization Chef left South Park to join?", 
-	choices: ["Antifa", "The Super Adventure Club", "The Marines", "The Peace Corp"], 
-	correctNum: 1
-};
-
-var question8 = {
-	question:"Who Replaced Principal Victoria?", 
-	choices: ["Principal Belding", "Principal Gambi", "PC Principal", "Principal Russel"],
-	correctNum: 2
-};
-
-var question9 = {
-	opinion: "In season 3 which band guest starred for the Halloween special?", 
-	choices: ["Primus", "Korn", "Limp Bizkit", "Nickelback"],
-	correctNum: 1
-};
-
-
-];
 
 
 

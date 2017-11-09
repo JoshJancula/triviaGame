@@ -64,9 +64,16 @@ questions
 
 create an interface with a way for user to select an answer by clicking
 
+define the variables for the game
+
+create a clock to countdown the time left to guess
+
 create buttons with and use value to determine user answers
 
 create a function to pop question
+	-call clock in this function
 	-what is the question
 	-what are the answers (array)
 	-index into array to get right answer
+
+create a start button that triggers the game initially
