@@ -68,12 +68,22 @@ define the variables for the game
 
 create a clock to countdown the time left to guess
 
-create buttons with and use value to determine user answers
+create buttons with a way to log correct and wrong answers to determine user answers
 
-create a function to pop question
+create a function to ask queston 
 	-call clock in this function
 	-what is the question
 	-what are the answers (array)
 	-index into array to get right answer
 
+
+create a function to ask next question
+	- ask next question will see if there are more questions 
+	
 create a start button that triggers the game initially
+
+create a function to finish question
+	- this will display tally at the end
+	- stop the clock in this function
+
+

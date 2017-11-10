@@ -79,8 +79,8 @@ var intervalId;
 var correct = 0;
 var wrong = 0;
 var clockRunning = false;
-// countDown
 
+// countDown
 var countDown = {
 
 	time: 10,
@@ -138,20 +138,20 @@ timeConverter: function(t) {
 		minutes = "0" + minutes;
 	}
 
+	// return minutes + ":" + seconds;
 	return minutes + ":" + seconds;
 }
 };
 
 // functon to reset the game
 function resetGame() {
-questionIndex = 0; 
-correct = 0;
-wrong = 0;
-clockRunning = false;
-$("#start").show();
-$("#currentQuestion").hide();
-$(".buttonAnswers").hide();
-$("#clock").show();
+	questionIndex = 0; 
+	correct = 0;
+	wrong = 0;
+	clockRunning = false;
+	$("#start").show();
+	$(".buttonAnswers").hide();
+	$("#clock").show();
 
 
 
@@ -162,14 +162,13 @@ resetGame();
 
 $("#start").on("click", function(event){
 	resetGame();
-	// call ask next question function
 	$("#start").hide();
 	questionIndex =0;
 	askNextQuestion();
 
 });
 
-// ask next question will see if there are more questions (index<questions.length)
+// ask next question will see if there are more questions 
 function askNextQuestion() {
 	// ask next question will then call askQuestion
 	if (questionIndex < questions.length) {
@@ -177,7 +176,6 @@ function askNextQuestion() {
 			questions[questionIndex].choices,
 			questions[questionIndex].correctNum);
 	}
-// display results
 }
 
 
@@ -185,19 +183,18 @@ function askNextQuestion() {
 
 
 function askQuestion(question, choices, correctNum) {
-			// what button was pressed
+			// set buttons id to something not defined
 			var buttonPressed = -1;
-			// show me the question
 			// set buttons to the answer choices
 			$("#0").text(choices[0]);
 			$("#1").text(choices[1]);
 			$("#2").text(choices[2]);
 			$("#3").text(choices[3]);
+			// show me the question
 			$("#currentQuestion").text(question);
-
 			$("#currentQuestion").show();
 			$(".buttonAnswers").show();
-			// ask question will load all choices and start timer
+			// start timer
 			countDown.reset();
 			countDown.start();
 		}
@@ -212,6 +209,8 @@ $(".buttonAnswers").on("click", function(event){
 
 });
 
+
+// function to finish the current question
 function finishQuestion() {
 	if (buttonPressed == questions[questionIndex].correctNum) {
 		correct++;
@@ -225,7 +224,7 @@ function finishQuestion() {
 		askNextQuestion();
 	} else {
 		// hide timer
-		 $("#clock").hide();
+		$("#clock").hide();
 		 // hide answers
 		 $(".buttonAnswers").hide();
 		// display results
