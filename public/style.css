@@ -1,0 +1,67 @@
+html { 
+    min-height: 100%;
+}
+
+#clock {
+	font-size: 40px;
+}
+
+
+.card {
+    padding: 2%;
+    margin-top: 20%;
+    border-radius: 60px;
+}
+
+
+
+body {
+    overflow: auto;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-image: url(images/southpark3.jpeg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: cover;
+	background-position: center;
+    /*background: linear-gradient(rgba(250, 250, 250, 0.5), rgba(250, 250, 250, 0.1)), url(images/southpark3.jpeg);*/
+
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+
+
+
+body1 {
+    background: #000;
+}
+
+
+#card-image {
+    border-radius: 60px;
+}
+
+
+
+
+@media screen and (max-width: 750px) and (min-width: 200px) {
+    .test {
+        display: none;
+
+    }
+
+    .card {
+        opacity: .9;
+        margin-top: 20%;
+        margin-left: 15%;
+        border-radius: 40px;
+    }
+    
+    #start {
+    margin-left: 25%;
+}
+}
