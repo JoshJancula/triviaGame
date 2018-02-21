@@ -8,12 +8,20 @@ html {
 
 
 .card {
+    opacity: .9;
     padding: 2%;
     margin-top: 20%;
     border-radius: 60px;
 }
 
 
+
+.answer {
+    max-height: 250px;
+    max-width: 250px;
+    width: 100%;
+    height: 100%;
+}
 
 body {
     overflow: auto;
