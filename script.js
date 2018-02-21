@@ -221,14 +221,14 @@
 				// tell them they got it right
 				wasCorrect();
 			}
-			else if (countDown.time === 0 && !buttonPressed) {// if they were out of time
+			else if (countDown.time > 0) {// if they got it wrong
 				wrong++; 
-				outOfTime();
+				wasWrong();
 			
 				} 
-				else { // if they got it wrong
+				else { // if they were out of time
 					wrong++
-					wasWrong();
+					outOfTime();
 					
 				}
 			
