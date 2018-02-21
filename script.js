@@ -86,6 +86,7 @@
 		var correct = 0;
 		var wrong = 0;
 		var clockRunning = false;
+		var buttonPressed;
 
 		// countDown
 		var countDown = {
@@ -213,14 +214,14 @@
 
 
 		// function to finish the current question
-		function finishQuestion() { // if the user got it right...
-		
+		function finishQuestion() { 
+			// if the user got it right...
 			if (buttonPressed == questions[questionIndex].correctNum) {
 				correct++;
 				// tell them they got it right
 				wasCorrect();
 			}
-			else if (countDown.time === 0) {// if they were out of time
+			else if (countDown.time === 0 && !buttonPressed) {// if they were out of time
 				wrong++; 
 				outOfTime();
 			
@@ -236,6 +237,7 @@
 			if (questionIndex < questions.length) {
 					setTimeout(function(){
 						askNextQuestion();
+						buttonPressed = -1;
 					}, 2000);
 			}
 			else {
