@@ -7,7 +7,7 @@
 
 			{
 				question: "In season 5 who did the Armed Forces in Afganistan mistake a goat for?",
-				choices: ["Stevie Nicks", "Oprah Winfrey", "Madonna", "Mike krzyzewski"],
+				choices: ["Stevie Nicks", "Sara Jessica Parker", "Madonna", "Mike krzyzewski"],
 				correctNum: 0,
 				answerImage: "http://www.southpark-online.nl/images/episodeclips/2536.jpg"
 			},
@@ -75,6 +75,69 @@
 				correctNum: 1,
 				answerImage: "https://vignette.wikia.nocookie.net/southpark/images/7/78/Korn.png/revision/latest?cb=20161209151611"
 			},
+			
+				{
+				question: "What convicted baby killer do the boys accidentally work toward freeing from prison?",
+				choices: ["Hat McCullough", "Jeffrey Dahmer", "Luis Garavito", "OJ Simpson"],
+				correctNum: 0,
+				answerImage: "https://www.google.com/imgres?imgurl=http%3A%2F%2F1.images.southparkstudios.com%2Fimages%2Fshows%2Fsouthpark%2Fvertical_video%2Fimport%2Fseason_06%2Fsp_0609_12_v8.jpg%3Fwidth%3D300%26height%3D169%26crop%3Dtrue%26quality%3D0.8&imgrefurl=http%3A%2F%2Fsouthpark.cc.com%2Fclips%2F153568%2Fhat-mcculloch-is-free&docid=HKoktJN_q0wBLM&tbnid=icdTCEEb6z9x6M%3A&vet=10ahUKEwjypJHy7MbZAhXRpFkKHSGxBSMQMwg5KAQwBA..i&w=300&h=169&bih=694&biw=1129&q=free%20hat%20south%20park&ved=0ahUKEwjypJHy7MbZAhXRpFkKHSGxBSMQMwg5KAQwBA&iact=mrc&uact=8"
+			},
+				{
+				question: "What is Stans dads occupation?",
+				choices: ["Chef", "Geologist", "Pharmacist", "Unemployed"],
+				correctNum: 1,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnj7yCW7tHFb_wWYrM4ieKwqrk4mOaxlpAxt8wjhC2y1eiiSTC"
+			},
+				{
+				question: "In the episode 'Scott Tenorman Must Die', what band does Scott Tenorman like?",
+				choices: ["Primus", "Metallica", "RadioHead", "Nirvana"],
+				correctNum: 2,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsxTxpdEpQSpLzMmxWvyeKj4386qpOuWQiKUVxuFxqoOvvptu8xg"
+			},
+	{
+				question: "In the episode 'Awesom-o', where do Butters and Cartman go?",
+				choices: ["Canada", "Los Angeles", "Denver", "Mexico"],
+				correctNum: 1,
+				answerImage: "https://vignette.wikia.nocookie.net/southpark/images/9/94/A.w.e.s.o.m.-o.png/revision/latest?cb=20110512203057"
+			},
+				{
+				question: "Which of these characters does not regularly wear a hat?",
+				choices: ["Craig", "Cartman", "Wendy", "Token"],
+				correctNum: 3,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX8mz71auKNbQ9XFsvEzEoesmsneCiULP4koXG3PEbKNtZed-rgw"
+			},
+				{
+				question: "What is the name of Kenny's brother?",
+				choices: ["Earl", "Kevin", "Steve", "Todd"],
+				correctNum: 1,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcQXdhdFZ9q1NpZGcpGK5HQPv3cSJaVVGn86yYSwD9QuB0ABLoeg"
+			},
+		{
+				question: "If you like fishsticks, what are you?",
+				choices: ["Lame", "A Gay Fish", "A Loser", "Normal"],
+				correctNum: 1,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw-BYWMeed70RepAc7QZdAf3wYMfZgC1m_yjZkQKqNX6LWoyBJ"
+			},
+
+	{
+				question: "Who sponsored Cartman's nascar?",
+				choices: ["Pepsi", "Nambla", "Vagisil", "KFC"],
+				correctNum: 2,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8AuGZ-VifkjovDLYcxEAYuTSCwlIEfanupWMASSGjUv2PH9KbrQ"
+			},
+			
+				{
+				question: "Who sang at Cartman's AIDS awareness event?",
+				choices: ["Elton John", "Lorde", "Mike Tyson", "Jimmy Buffet"],
+				correctNum: 3,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE2C9RHG9RPSd-saTdzSGiOAAxYlam5OEm9PBswYTqQoSJy_peUg"
+			},
+					{
+				question: "What is Cartman's favorite place in the whole world?",
+				choices: ["Casa Bonita", "Home", "Super Fun Time", "Pioneer Village"],
+				correctNum: 0,
+				answerImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSS-MGf_1HcvAY6v5fgnfYtS46I_h0Mjqqs5y1Imd69N3w1SNYdg"
+			},
 
 
 		];
@@ -124,8 +187,22 @@
 		};
 
 
+
+		// shuffle the array
+		function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
+
+
 		// functon to reset the game
 		function resetGame() {
+			shuffleArray(questions)
 			questionIndex = 0;
 			correct = 0;
 			wrong = 0;
@@ -148,7 +225,7 @@
 		// ask next question will see if there are more questions 
 		function askNextQuestion() {
 			// ask next question will then call askQuestion
-			if (questionIndex < questions.length) {
+			if (questionIndex < 10) {
 				askQuestion(questions[questionIndex].question,
 					questions[questionIndex].choices,
 					questions[questionIndex].correctNum);
@@ -234,7 +311,7 @@
 			
 			// add 1 to the index
 			questionIndex++; // if we aren't out of questions yet
-			if (questionIndex < questions.length) {
+			if (questionIndex < 10) {
 					setTimeout(function(){
 						askNextQuestion();
 						buttonPressed = -1;
